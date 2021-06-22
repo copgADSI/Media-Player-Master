@@ -1,0 +1,92 @@
+i {
+    cursor: pointer;
+    color: rgb(72, 123, 233);
+}
+
+i:hover {
+    color: rgb(0, 46, 145);
+}
+
+#file {
+    position: relative;
+    display: inline-block;
+}
+
+#file::before {
+    background-color: rgb(135, 140, 151);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Seleccionar';
+    /* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#file input[type="file"] {
+    opacity: 0;
+    width: 466px;
+    height: 32px;
+    display: inline-block;
+}
+
+#file::before {
+    content: 'Upload Media';
+}
+
+.repat {
+    color: red;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+#search {
+    cursor: pointer;
+}
+
+#search:hover {
+    color: rebeccapurple;
+    border: rebeccapurple;
+}
+
+.container {
+    position: relative;
+    list-style: none;
+    cursor: pointer;
+}
+
+#results {
+    background: #ffff;
+}
+
+#results li:hover {
+    background-color: #efefef;
+}
+
+#results li.active {
+    display: block;
+    padding: 10px 8px;
+    opacity: 1;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background: #644bff;
+}
+
+.alert {
+    background: #644bff;
+}

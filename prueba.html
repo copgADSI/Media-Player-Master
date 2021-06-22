@@ -1,0 +1,35 @@
+<input type="file"><br>
+<div></div>
+
+
+<script>
+    var fileEl = document.querySelector("input");
+    fileEl.onchange = function(e) {
+
+        var file = e.target.files[0], // selected file
+            mime = file.type, // store mime for later
+            rd = new FileReader(); // create a FileReader
+
+        rd.onload = function(e) { // when file has read:
+
+            var blob = new Blob([e.target.result], {
+                    type: mime
+                }), // create a blob of buffer
+                url = (URL || webkitURL).createObjectURL(blob), // create o-URL of blob
+                video = document.createElement("video"); // create video element
+            console.log(blob);
+
+            video.preload = "metadata"; // preload setting
+            video.addEventListener("loadedmetadata", function() { // when enough data loads
+                document.querySelector("div")
+                    .innerHTML = "Duration: " + video.duration / 60 + "min"; // show duration
+                (URL || webkitURL).revokeObjectURL(url); // clean up
+
+                // ... continue from here ...
+
+            });
+            video.src = url; // start video load
+        };
+        rd.readAsArrayBuffer(file); // read file object
+    };
+</script>
